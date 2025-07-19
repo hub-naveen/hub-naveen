@@ -59,3 +59,7 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212259363-d40b7a35-375b-470c-b4e2-2d9cb8ac706c.png" width="500" alt="Decorative banner"/>
 </p>
+<p align="center">
+  <img src="https://github.com/hub-naveen/hub-naveen/blob/main/dist/github-snake-ocean.gif?raw=true" alt="GitHub Snake Animation" />
+</p>
+
