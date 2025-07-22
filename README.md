@@ -1,25 +1,28 @@
 <h1 align="center">Hi 👋, I'm Naveen — Building the Future with Code & Data</h1>
+ 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212749447-bfb7e725-6987-49d9-ae85-2015e3e7cc41.gif" />
 </p>
+
 <h3 align="center">AI Explorer • Data Science Enthusiast • Future Tech Leader</h3>
 
+ 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=hub-naveen&label=Profile%20views&color=0e75b6&style=flat" alt="hub-naveen" />
 </p>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-<p align="center">
+<div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=hub-naveen&show_icons=true&locale=en" alt="hub-naveen" />
-</p>
-
-<p align="center">
+ 
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=hub-naveen&" alt="hub-naveen" />
-</p>
+</div>
 
 - 🔭 I’m currently working on **Gen AI**
 - 📫 How to reach me: **itzmenavin07@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 <p align="left">
   <a href="https://www.linkedin.com/in/7naveen/" target="blank">
     <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="40" />
@@ -30,6 +33,7 @@
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 <p align="left">
   <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" height="40" alt="Python"/> </a>
   <a href="https://pandas.pydata.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" width="40" height="40" alt="Pandas"/> </a>
@@ -45,7 +49,9 @@
   <a href="https://www.mongodb.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" width="40" height="40" alt="MongoDB"/> </a>
 </p>
 
-<h2 align="left">I also code with:</h2>
+<h3 align="left">I also code with:</h3>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <p align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript"/>
   <img width="12"/>
@@ -62,4 +68,5 @@
 <p align="center">
   <img src="https://github.com/hub-naveen/hub-naveen/blob/main/dist/github-snake-ocean.gif?raw=true" alt="GitHub Snake Animation" />
 </p>
-
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+    
