@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unique Tetris Contribution Graph</title>
+  <style>
+    body {
+      background: #181818;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+      padding: 32px 32px 16px 32px;
+      margin-bottom: 32px;
+    }
+    #tetris-canvas {
+      display: block;
+      background: #181818;
+      border-radius: 8px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+      margin-bottom: 16px;
+    }
+    .instructions {
+      color: #bbb;
+      font-size: 1em;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .embed {
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      margin-top: 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Tetris Contribution Graph Animation</h2>
+    <canvas id="tetris-canvas" width="700" height="120"></canvas>
+    <div class="instructions">
+      <div>Enjoy this unique Tetris-style animated contribution graph!</div>
+      <div class="embed">To embed a preview in your README.md:<br>
+        <code>&lt;img src="https://raw.githubusercontent.com/&lt;your-username&gt;/&lt;your-repo&gt;/main/unique-contrib-graph.gif" /&gt;</code>
+      </div>
+      <div style="margin-top:8px; font-size:0.95em;">(Export as GIF using a screen recorder or GIF tool, then upload to your repo.)</div>
+    </div>
+  </div>
+  <script>
+    // --- Tetris Contribution Graph Animation ---
+    const canvas = document.getElementById('tetris-canvas');
+    const ctx = canvas.getContext('2d');
+    const cols = 53;
+    const rows = 7;
+    const cell = 12;
+    const gap = 3;
+    const offsetX = 10;
+    const offsetY = 10;
+    const width = cols * (cell + gap);
+    const height = rows * (cell + gap);
+
+    // Tetris colors
+    const colors = ['#f39c12', '#e74c3c', '#8e44ad', '#27ae60', '#3498db', '#f1c40f', '#1abc9c'];
+    // Tetris shapes (relative coordinates)
+    const shapes = [
+      [[0,0],[1,0],[0,1],[1,1]], // O
+      [[0,0],[1,0],[2,0],[3,0]], // I
+      [[0,0],[1,0],[2,0],[2,1]], // L
+      [[0,0],[1,0],[2,0],[0,1]], // J
+      [[0,0],[1,0],[1,1],[2,1]], // S
+      [[1,0],[2,0],[0,1],[1,1]], // Z
+      [[1,0],[0,1],[1,1],[2,1]], // T
+    ];
+
+    // Grid state
+    let grid = Array.from({length: rows}, () => Array(cols).fill('#222'));
+
+    // Animation state
+    let falling = null;
+    let fallX = 0, fallY = 0, fallColor = '#fff', fallShape = [];
+    let frame = 0;
+
+    function drawGrid() {
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          ctx.fillStyle = grid[y][x];
+          ctx.fillRect(offsetX + x * (cell + gap), offsetY + y * (cell + gap), cell, cell);
+          ctx.strokeStyle = '#111';
+          ctx.strokeRect(offsetX + x * (cell + gap), offsetY + y * (cell + gap), cell, cell);
+        }
+      }
+    }
+
+    function drawFalling() {
+      ctx.save();
+      ctx.globalAlpha = 0.9;
+      ctx.shadowColor = fallColor;
+      ctx.shadowBlur = 8;
+      for (const [dx, dy] of fallShape) {
+        const x = fallX + dx;
+        const y = fallY + dy;
+        if (x >= 0 && x < cols && y >= 0 && y < rows) {
+          ctx.fillStyle = fallColor;
+          ctx.fillRect(offsetX + x * (cell + gap), offsetY + y * (cell + gap), cell, cell);
+          ctx.strokeStyle = '#fff';
+          ctx.strokeRect(offsetX + x * (cell + gap), offsetY + y * (cell + gap), cell, cell);
+        }
+      }
+      ctx.restore();
+    }
+
+    function canMove(dx, dy) {
+      for (const [sx, sy] of fallShape) {
+        const x = fallX + sx + dx;
+        const y = fallY + sy + dy;
+        if (x < 0 || x >= cols || y < 0 || y >= rows) return false;
+        if (grid[y][x] !== '#222') return false;
+      }
+      return true;
+    }
+
+    function placeFalling() {
+      for (const [dx, dy] of fallShape) {
+        const x = fallX + dx;
+        const y = fallY + dy;
+        if (x >= 0 && x < cols && y >= 0 && y < rows) {
+          grid[y][x] = fallColor;
+        }
+      }
+    }
+
+    function spawnFalling() {
+      fallShape = shapes[Math.floor(Math.random() * shapes.length)];
+      fallColor = colors[Math.floor(Math.random() * colors.length)];
+      fallX = Math.floor(Math.random() * (cols - 3));
+      fallY = -2;
+    }
+
+    function clearFullRows() {
+      for (let y = rows - 1; y >= 0; y--) {
+        if (grid[y].every(c => c !== '#222')) {
+          for (let yy = y; yy > 0; yy--) {
+            grid[yy] = [...grid[yy-1]];
+          }
+          grid[0] = Array(cols).fill('#222');
+          y++; // recheck this row
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawGrid();
+      if (!falling) {
+        spawnFalling();
+        falling = true;
+      }
+      if (frame % 8 === 0) {
+        if (canMove(0, 1)) {
+          fallY++;
+        } else {
+          placeFalling();
+          clearFullRows();
+          falling = false;
+        }
+      }
+      drawFalling();
+      frame++;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html> 
