@@ -91,10 +91,10 @@
   <table>
     <tr>
       <td>
-        <img src="https://github-readme-stats.vercel.app/api?username=hub-naveen&show_icons=true&locale=en" alt="hub-naveen"/>
+        <img src="https://github-readme-streak-stats.herokuapp.com?user=hub-naveen&theme=vue-dark" alt="hub-naveen's GitHub streak" />
       </td>
       <td>
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=hub-naveen&" alt="hub-naveen"/>
+        <img src="https://github-readme-stats.vercel.app/api?username=hub-naveen&theme=vue-dark" alt="hub-naveen's GitHub stats" />
       </td>
     </tr>
   </table>
@@ -111,8 +111,12 @@
  
 <h3 align="center">My Activity Graph</h3>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Ashutosh00710/github-readme-activity-graph/main/asset/github.svg" alt="Activity Graph"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=hub-naveen&theme=vue" alt="hub-naveen's Activity Graph" />
 </div>
 
  
  <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" /> 
+
+<!-- FUN_FACT_START -->
+**Fun Fact of the Day:** Did you know? The honeybee is the only insect that produces food eaten by humans!
+<!-- FUN_FACT_END -->
