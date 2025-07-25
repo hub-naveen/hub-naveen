@@ -35,16 +35,17 @@ jobs:
           echo "FACT=$fact" >> $GITHUB_ENV
 
       - name: Update README.md
-        run: |
-          start="<!-- FUN_FACT_START -->"
-          end="<!-- FUN_FACT_END -->"
-          fact="${{ env.FACT }}"
-          awk -v s="$start" -v e="$end" -v f="$fact" '
-            BEGIN {p=1}
-            $0~s {print; print "**Fun Fact of the Day:** " f; p=0; next}
-            $0~e {p=1}
-            p
-          ' README.md > README.tmp && mv README.tmp README.md
+  run: |
+    start="<!-- FUN_FACT_START -->"
+    end="<!-- FUN_FACT_END -->"
+    fact="${{ env.FACT }}"
+    awk -v s="$start" -v e="$end" -v f="$fact" '
+      BEGIN {p=1}
+      $0~s {print; print "**Fun Fact of the Day:** " f; p=0; next}
+      $0~e {p=1}
+      p
+    ' README.md > README.tmp && mv README.tmp README.md
+
 
       - name: Commit changes
         run: |
