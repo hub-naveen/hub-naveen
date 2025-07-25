@@ -15,7 +15,7 @@ jobs:
       - name: Fetch random fun fact
         id: get_fact
         run: |
-          fact=$(curl -s "https://uselessfacts.jsph.pl/random.json?language=en" | jq -r .text)
+          fact=$(curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" | jq -r .text)
           echo "FACT=$fact" >> $GITHUB_ENV
 
       - name: Update README.md
