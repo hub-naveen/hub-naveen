@@ -15,7 +15,10 @@ jobs:
       - name: Fetch random fun fact
         id: get_fact
         run: |
-          fact=$(curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en" | jq -r .text)
+          echo "Fetching fun fact..."
+          response=$(curl -s "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
+          echo "Response: $response"
+          fact=$(echo "$response" | jq -r .text)
           echo "FACT=$fact" >> $GITHUB_ENV
 
       - name: Update README.md
@@ -35,4 +38,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git diff --cached --quiet || git commit -m 'chore: update fun fact in README [auto]' && git push 
+          git diff --cached --quiet || git commit -m 'chore: update fun fact in README [auto]'
+          git push
