@@ -118,5 +118,5 @@
  <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" /> 
 
 <!-- FUN_FACT_START -->
-**Fun Fact of the Day:** Did you know? The honeybee is the only insect that produces food eaten by humans!
+**Fun Fact of the Day:** The sweat drops drawn in cartoon comic strips are called pleuts.
 <!-- FUN_FACT_END -->
